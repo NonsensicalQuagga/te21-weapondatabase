@@ -1,0 +1,15 @@
+#sadge{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    width: min(80ch, 100vw - 4rem);
+    margin-inline: auto;
+}
+
+main > div > h1{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
