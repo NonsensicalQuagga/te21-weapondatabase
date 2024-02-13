@@ -11,3 +11,11 @@ Planering:
 * Visa information från en databas
 * Få informationen att se okej ut
 * Mer information i databasen
+
+
+## 6/2 - 2024
+Hadde lite problem med SQL frågor.
+Problemet var att WHERE id = ? var på fel plats.
+
+## 12/2 - 2024
+Jag är sämst på att göra arrays i javascript
