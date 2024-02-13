@@ -22,7 +22,7 @@
     margin-inline: auto;
 }
 
-main > div > h1{
+main > nav > h1{
     display: flex;
     justify-content: center;
     margin: 0;
@@ -34,4 +34,16 @@ main > div > ul > li{
 body{
     margin: 0;
 
+}
+nav{
+    display: flex; 
+    justify-content: center
+}
+.weapon >  img{
+    width: 4rem; 
+    height: fit-content;
+}
+.weapon{
+    display: flex;
+    justify-content: center;
 }

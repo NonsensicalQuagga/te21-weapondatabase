@@ -16,7 +16,7 @@ router.get('/dbtest/:id', async (req, res) =>{
   try {
     const id = req.params.id
     const [weapon] = await pool.promise().query(`   
-    SELECT alvin_type.name, alvin_type.description, alvin_attacks.attack_name, alvin_attacks.description AS attack_description, alvin_attacks.mv
+    SELECT alvin_type.name, alvin_type.description, alvin_attacks.input, alvin_attacks.description AS attack_description, alvin_attacks.mv
     FROM alvin_weapon
     JOIN alvin_type ON alvin_weapon.weapon_type = alvin_type.id
     JOIN alvin_attacks on alvin_weapon.Weapon_moveset = alvin_attacks.moveset
@@ -27,7 +27,9 @@ router.get('/dbtest/:id', async (req, res) =>{
     console.log(weapon)
     res.render('weapon.njk', {
       title: temp.name,
-      weapon
+      image_id: id,
+      weapon,
+      description: temp.description
     })  
     //console.log(parts)
   } catch(error){
