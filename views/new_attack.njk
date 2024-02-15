@@ -1,0 +1,30 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<main class="wrapper">
+  <h1>Add a new attack to a weapon</h1>
+  <form action="/new_attack" method="post">
+    <div class="form-element">
+      <label for="name">Input:</label>
+      <input type="text" name="input" id="input">
+    </div>
+    <div class="form-element">
+      <label for="age">mv:</label>
+      <input type="text" name="mv" id="mv">
+    </div>
+    <div class="form-element">
+      <label for="weight">Description:</label>
+      <input type="text" name="description" id="description">
+    </div>
+    <div class="form-element">
+      <label for="Weapon">vapen:</label>
+      <select name="weapon" id="attack">
+        {% for weapon in weapons %}
+          <option value="{{ weapon.moveset }}">{{ weapon.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <input type="submit" value="Add weapon">
+  </form>
+</main>
+{% endblock %}

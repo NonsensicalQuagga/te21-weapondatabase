@@ -47,3 +47,9 @@ nav{
     display: flex;
     justify-content: center;
 }
+
+.wrapper {
+    max-width: 52rem;
+    margin-inline: auto;
+    padding: 1rem;
+  }
