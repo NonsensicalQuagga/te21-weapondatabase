@@ -1,7 +1,14 @@
 {% extends "layout.njk" %}
 {% block content %}
-<main>
-    <h1>hi</h1>
-    <a href="/test">No database?</a>
+<main class="container"> 
+    <h1>{{title}}</h1>
+    <ul>
+        {% for weapon in weapons %}
+        <li> <a href="/dbtest/{{weapon.id}}"> {{weapon.name}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <p> <a href="/new_attack">Add attack </a></p>
+
 </main>
 {% endblock %}
