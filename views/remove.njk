@@ -1,0 +1,20 @@
+{% extends "layout.njk" %}
+{% block content %}
+<main class="container">
+    <h1>{{title}}</h1>
+    <form action="/remove_attack" method="post">
+        <div class="form-element">
+            <label for="attacks">Attack:</label>
+            <select name="id" id="id">
+              {% for attack in attacks %}
+                <option value="{{ attack.id }}">{{ attack.description }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <input type="submit" value="Remove attack">
+    </form>
+</main>
+
+
+
+{% endblock %}

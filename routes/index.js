@@ -92,7 +92,7 @@ router.post('/new_attack', async function (req, res) {
       VALUES (?, ?, ?, ?)`,
       [req.body.input, req.body.mv, req.body.description, req.body.weapon]
     )
-    res.redirect('/index.njk')
+    res.redirect('/')
   } catch (error) {
     console.log(error)
     res.sendStatus(500)
@@ -100,6 +100,42 @@ router.post('/new_attack', async function (req, res) {
 
 
 })
+
+router.get('/remove_attack', async function (req, res) {
+  try {
+ // res.render('index.njk')
+  const [attack] = await pool.promise().query(`
+  SELECT alvin_attacks.id, alvin_attacks.description FROM alvin_attacks
+  `)
+  console.log(attack)
+  return res.render('remove.njk', {
+    title: 'Remove attack',
+    attacks: attack
+  })
+} catch(error){
+  console.log(error)
+  res.sendStatus(500)
+}
+
+// DELETE FROM alvin_attacks WHERE id = ?
+
+})
+
+router.post('/remove_attack', async function (req, res) {
+  // res.json(req.body) //för att kolla och kika den data vi får från front-end
+   try {
+     const [result] = await pool.promise().query(
+       `DELETE FROM alvin_attacks WHERE id = ?`,
+       [req.body.id]
+     )
+     res.redirect('/')
+   } catch (error) {
+     console.log(error)
+     res.sendStatus(500)
+   }
+ 
+ 
+ })
 
 router.post('/cats', async function (req, res) {
   res.json(req.body) //för att kolla och kika den data vi får från front-end
